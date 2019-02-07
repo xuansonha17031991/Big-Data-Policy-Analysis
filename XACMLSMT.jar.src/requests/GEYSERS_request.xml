@@ -1,0 +1,13 @@
+<Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" ReturnPolicyIdList="true" CombinedDecision="false"> 
+ <Attributes Category="unknown">
+    <Attribute IncludeInResult="true" AttributeId="http://authz-interop.org/AAA/xacml/resource/resource-type">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">http://geysers.eu/upperlicl/resource/resource-type/VI</AttributeValue>
+    </Attribute>
+  </Attributes>
+  <Attributes Category="unknown">
+    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">MLI:ReplanningVI:Modify-Time</AttributeValue>
+    </Attribute>
+  </Attributes>
+ 
+</Request>

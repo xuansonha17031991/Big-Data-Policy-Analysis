@@ -1,0 +1,115 @@
+Hiện tại
+	Mình có 1 hướng đi khác
+		Đi thẳng đến đích
+	Sự khác nhau giữa Solution of a model và 1 request là gì?
+		Trong Solution có thêm các thuộc tính khác thì mới thỏa
+			=> Chưa chắc request ko ổn
+			Mà thuộc tính đó trong request lại không có
+		Vậy nếu Solution khác request thì coi như request chưa chắc trả về true
+		Cái mình cần là immediate result
+			Nếu Satisfiable => result with warning
+			Nhưng mình cần đảm bảo là trong model không tồn tại request của mình
+	Mình có thể dùng Model để verify một request
+		Nhưng request đó có thể cũng thuộc vào vùng không gian khác
+	Đó là 4 vùng không gian riêng biệt
+	Force chỉ true 1 vùng không gian
+	=> P and not(D or IN or NA)
+	Card không thể truyền vào được
+EnumerateDomain chứa các danh sách value cho các Domain khác nhau
+	String
+	...
+Đang có 3 lựa chọn
+- Không lấy từ query value
+	- Enummerated value ko apply Double
+		Exception in thread "main" java.lang.NullPointerException
+		at smtfunctions.SMTMatchEqual.createMatchEqExpr(SMTMatchEqual.java:63)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:129)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:219)
+		at query.QueryRunner.convert2Z3ExprStr(QueryRunner.java:222)
+		at query.QueryRunner.executeQuery(QueryRunner.java:393)
+		at experiments.PolEvalExp.solve(PolEvalExp.java:31)
+		at experiments.PolEvalExp.experimentPolEval(PolEvalExp.java:84)
+		at experiments.PolEvalExp.main(PolEvalExp.java:91)
+		=> Value Doctor-Non-Aggreement không tồn tại, hệ thống ko hiểu đó là 1 value vì không truyền vào EnumerateDomains
+
+	- Enummerated value apply Double
+		Exception in thread "main" java.lang.NullPointerException
+		at translator.XACMLTranslator.initialize(XACMLTranslator.java:162)
+		at translator.XACMLTranslator.<init>(XACMLTranslator.java:51)
+		at translator.XACMLPQNormalizer.loadAndTranslatePolicies(XACMLPQNormalizer.java:345)
+		at query.QueryRunner.loadPolicies(QueryRunner.java:352)
+		at experiments.PolEvalExp.solve(PolEvalExp.java:27)
+		at experiments.PolEvalExp.experimentPolEval(PolEvalExp.java:84)
+		at experiments.PolEvalExp.main(PolEvalExp.java:91)
+		=> Không có value trong enumerateDomains => null RealSort.
+			listOfSorts được xây dựng từ enumerateDomains với các sort có attribute
+
+- Bổ sung query value vào enumeratedDomain
+	- Enummerated value ko apply Double
+		Exception in thread "main" java.lang.NullPointerException
+		at translator.XACMLPQNormalizer.findQueryVariable(XACMLPQNormalizer.java:258)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:287)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:315)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:315)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:315)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:315)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:315)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:315)
+		at translator.XACMLPQNormalizer.setDomainsFromQuery(XACMLPQNormalizer.java:327)
+		at translator.XACMLPQNormalizer.loadAndTranslatePolicies(XACMLPQNormalizer.java:343)
+		at query.QueryRunner.loadPolicies(QueryRunner.java:352)
+		at experiments.PolEvalExp.solve(PolEvalExp.java:27)
+		at experiments.PolEvalExp.experimentPolEval(PolEvalExp.java:84)
+		at experiments.PolEvalExp.main(PolEvalExp.java:91)
+		=> Null varSort for Double
+	- Enummerated value ko apply Double nhưng ignore Double value trong Enum => Các giá trị double sẽ ko là enumerated.
+		Exception in thread "main" java.lang.NullPointerException
+		at translator.XACMLPQNormalizer.findQueryVariable(XACMLPQNormalizer.java:252)
+		at translator.XACMLPQNormalizer.checkQueryNodes(XACMLPQNormalizer.java:287)
+		at translator.XACMLPQNormalizer.setDomainsFromQuery(XACMLPQNormalizer.java:327)
+		at translator.XACMLPQNormalizer.loadAndTranslatePolicies(XACMLPQNormalizer.java:343)
+		at query.QueryRunner.loadPolicies(QueryRunner.java:352)
+		at experiments.PolEvalExp.solve(PolEvalExp.java:28)
+		at experiments.PolEvalExp.experimentPolEval(PolEvalExp.java:85)
+		at experiments.PolEvalExp.main(PolEvalExp.java:92)
+
+	- Enummerated value apply Double
+		Exception in translateRule com.microsoft.z3.ArrayExpr cannot be cast to com.microsoft.z3.ArithExpr
+		Exception in translateRule com.microsoft.z3.ArrayExpr cannot be cast to com.microsoft.z3.ArithExpr
+
+		Exception in thread "main" java.lang.NullPointerException
+		at combiningalg.SMTCombiningAlg.executeAlgAllPairs(SMTCombiningAlg.java:36)
+		at policy.SMTPolicy.getFinalElement(SMTPolicy.java:73)
+		at combiningalg.SMTCombiningAlg.executeAlgOnePair(SMTCombiningAlg.java:31)
+		at combiningalg.SMTCombiningAlg.executeAlgAllPairs(SMTCombiningAlg.java:42)
+		at policy.SMTPolicy.getFinalElement(SMTPolicy.java:76)
+		at query.QueryRunner.printSMTPolicies(QueryRunner.java:369)
+		at query.QueryRunner.loadPolicies(QueryRunner.java:361)
+		at experiments.PolEvalExp.solve(PolEvalExp.java:27)
+		at experiments.PolEvalExp.experimentPolEval(PolEvalExp.java:84)
+		at experiments.PolEvalExp.main(PolEvalExp.java:91)
+		=> Chưa có cách tạo Arithmetic cho Array	
+
+
+checkQueryNodes
+	Equal
+		firstChild
+		secondChild
+			value + double
+
+XACMLPQNormalizer
+	policyVariables
+	queryVariables
+	enumerateDomains

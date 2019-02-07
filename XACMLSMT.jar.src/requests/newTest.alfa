@@ -1,0 +1,82 @@
+/*
+	policyset R01{
+		target clause resourceType=="Course" and actionType=="Create"
+		apply denyOverrides
+		policy Teacher{
+			target clause role=="Teacher"
+			apply denyOverrides
+			rule permitRule{
+				permit
+			}
+			rule other{
+				target clause role=="Student" or role=="Other"
+			//	condition not(stringOneAndOnly(userId)==stringOneAndOnly(teacherID))
+				deny
+			}
+		}
+	}
+	policyset R02{
+		target clause resourceType=="Salary" and actionType=="Read"
+		apply denyOverrides
+		policy Teacher{
+			target clause role=="Teacher"
+			apply denyOverrides
+			rule permitRule{
+				permit
+			}
+			rule other{
+				target clause role=="Student" or role=="Other"
+				//condition not(stringOneAndOnly(userId)==stringOneAndOnly(teacherID))
+				deny
+			}
+		}
+	}
+	policyset R03{
+		target clause resourceType=="Course" and actionType=="Read"
+		apply denyOverrides
+		policy Student{
+			target clause role=="Student" and isonpen=="IsOnpenCourse" or isonpen=="IsAboutToCourse"//role
+			apply denyOverrides
+			rule permitRule{
+				permit
+			}
+			rule other{
+				target clause role=="Teacher" or role=="Other"
+				condition not(stringOneAndOnly(userId)==stringOneAndOnly(StudentID))
+				deny
+			}
+		}
+	}
+	policyset R04{//
+		target clause resourceType=="Test" and actionType=="Read"
+		apply denyOverrides
+		policy Student{
+			target clause role=="Student" and StudentID=="getIDstudent" and IP=="192.168.1.2"
+			apply denyOverrides
+			rule permitRule{
+				permit
+			}
+			rule other{
+				target clause role=="Teacher" or role=="Other"
+				condition not(stringOneAndOnly(userId)==stringOneAndOnly(StudentID))
+				deny
+			}
+		}
+	}
+	policyset R05{
+		target clause resourceType=="Test" and actionType=="Updata"
+		apply denyOverrides
+		policy Student{
+			target clause role=="Student" and StudentID=="getIDstudent" 
+			apply denyOverrides
+			rule permitRule{
+				permit
+			}
+			rule other{
+				target clause role=="Teacher" or role=="Other"
+				condition not(stringOneAndOnly(userId)==stringOneAndOnly(StudentID)) 
+				deny
+			}
+		}
+	}
+} */

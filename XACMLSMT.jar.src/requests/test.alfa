@@ -1,0 +1,102 @@
+namespace test{
+	import Attributes.*
+	import ObligationAdvice.*
+	policyset HealthCarePsPatientRecord {
+		target clause resourceType=="Patient.Record" and actionType=="Read"
+		apply denyOverrides
+		
+		policy NormalAccessDoctor {
+		 target clause patientStatus == "AvaibabeNurseDoctor"
+		 	clause role =="Doctor" or role =="Nurse"
+		 	apply denyOverrides
+		 	rule permitPatientAssignedDoctor {
+		 		target clause role=="Doctor"
+		 		condition not (stringOneAndOnly(userId)==stringOneAndOnly(patientRecordAssignedDoctorId))
+		 		deny
+		 }
+		 	rule permitPatientAssignedNurse{
+		 		target clause role =="Nurse"
+		 		condition not (stringOneAndOnly(userId)== stringOneAndOnly(patientRecordAssignedNurseId))
+		 		deny
+		 		}
+		 	
+		 	rule permitRule{
+		 		permit
+		 	}
+		
+		}
+		 policy NormalAccessInsurace{
+		 		target clause role =="External" and partyType=="Insurance"
+		 		apply denyOverrides
+		 		rule permitBilling{
+		 			condition not(stringOneAndOnly(resourcePath)=="Patient.Record.Billing")
+		 			deny	
+		 		}	
+		 		rule permitRule{
+		 			permit
+		 		}
+		}
+		policy NormalAccessPharmacy {
+				target clause role=="External" and partyType=="Pharmacy1"
+				apply denyOverrides
+				rule permitMedicines{
+					condition not(stringOneAndOnly(resourcePath)=="Patient.Record.Medicines")
+					deny
+					}
+				rule permitRule{
+				permit
+				}
+		}
+	policy UserEmergencyAccess {
+			target clause patientStatus=="NotAvailableNurseDoctor" and role=="Doctor" and position=="SeniorConsultant"
+				clause patientConsciousStatus=="Conscious" or patientConsciousStatus=="Unconscious"
+			apply denyOverrides
+			rule patientConscious {
+				target clause patientConsciousStatus=="Conscious"
+				condition not(stringOneAndOnly(patientEmergencyAgreementMedicalStaff)==stringOneAndOnly(userId)) 
+							|| not(stringOneAndOnly(location)==stringOneAndOnly(patientRecordDepartment))
+							|| doubleOneAndOnly(currentTime)<doubleOneAndOnly(patientEmergencyAgreemenStartTime)
+							|| doubleOneAndOnly(currentTime)>doubleOneAndOnly(patientEmergencyAgreementEndTime)
+				deny
+			}
+			rule patientUnconscious {
+				target clause patientConsciousStatus=="Unconscious"
+				condition not(stringOneAndOnly(patientEmergencyAgreementMedicalStaff)==stringOneAndOnly(userId))
+							|| not(stringOneAndOnly(patientEmergencyAgreementRelativePassportId)==stringOneAndOnly(patientRelativePassportId))
+							|| not(stringOneAndOnly(location)==stringOneAndOnly(patientRecordDepartment))
+							|| doubleOneAndOnly(currentTime)<doubleOneAndOnly(patientEmergencyAgreemenStartTime)
+							|| doubleOneAndOnly(currentTime)>doubleOneAndOnly(patientEmergencyAgreementEndTime)
+				deny
+			}
+			rule permitRule {
+				permit
+			}
+			
+			on deny {
+				obligation mailToPatient
+			}
+			on permit {
+				obligation mailToPatient
+			}
+		}
+		
+		policy SystemEmergencyPatientAccess {
+			target clause patientStatus=="NotAvailableNurseDoctor" and role=="Doctor" and position=="SeniorConsultant"
+			apply denyOverrides
+			rule patientConscious {
+				condition not(stringOneAndOnly(location)==stringOneAndOnly(patientRecordDepartment))
+				deny
+			}
+			rule permitRule {
+				permit
+			}
+			
+			on deny {
+				obligation mailToPatient
+			}
+			on permit {
+				obligation mailToPatient
+			}
+		}
+	}
+}

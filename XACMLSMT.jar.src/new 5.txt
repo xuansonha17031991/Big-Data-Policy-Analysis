@@ -1,0 +1,16 @@
+(\REPLC (action-type = Read)
+((\REPLC (patient:record:assigned-doctor-id = Doctor-Patient)
+((\REPLC (patient:record:department = Heart)
+((\REPLC (patient:management-info:status = AvailableNurseDoctor)
+((\REPLC (resource-type = Patient.Record)
+((\REPLC (role = Doctor)
+((\REPLC (user-id = Doctor-Patient)(P_1))))))))))))))
+
+
+(\REPLC (action-type = Read)
+((\REPLC (patient:record:assigned-doctor-id = Doctor-Patient)
+((\REPLC (patient:record:department = Heart)
+((\REPLC (patient:management-info:status = AvailableNurseDoctor)
+((\REPLC (resource-type = Patient.Record)
+((\REPLC (role = Doctor)
+((\REPLC (user-id = Doctor-Patient)(P_1))))))))))))))

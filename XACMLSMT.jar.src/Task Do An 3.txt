@@ -1,0 +1,35 @@
+làm cái giải thuật
+tìm hiểu cấu trúc dữ liệu hash map
+tổ hợp các key(attributeID) và value(attributeValue)
+lưu dữ liệu lại dưới dạng map bằng pp put
+
+
+giả sử có output hash map
+kiểm tra 4 cái giá trị p_1 d_1 na_1
+viết 1 hàm truyền vào space (p_1 or d_1 or na_1 or in_1, hash map {string, string} )
+-> output replaceof
+
+viết báo cáo 
+	- tìm hiểu xml
+	- tìm hiểu cấu trúc xacml3
+	- tìm hiểu các thành phần xacml3
+	- tìm hiểu SMT
+	- coi code
+	- tìm hiểu logic vị từ
+	- Task 1: chuyển từ file request.permit.xml thành stringQuery
+	- viết function Space(p_1 or d_1 or na_1 or in_1, hash map {string, string}) - Done
+	- 
+
+https://github.com/khiem111189/incubator-openaz/tree/master/openaz-xacml-test/src/test/resources/testsets/healthcare/xml-requests (File đầu vào để test)
+
+task 2: viết 1 file test kiểm tra giá trị stringQuery
+ - đầu vào là 1 file xml -> kết quả trả ra là 1 stringQuery
+
+task 3: nhận 1 file attributeDomain.txt -> xây dựng giá trị "negative value" cho replaceof
+trong file attributeDomain có cấu trúc: 
+	- mỗi row -> String : String -> vd: user-id=>(attributeID), patient-assigned-doctor=>(attributeID): (doctor-patient, doctor-non-patient, nurse)=>(attributeValue)
+	- suy nghĩ mỗi người làm phần nào -> assign cho Nam: research how to read txt file -> how to write XML file follow ALFA
+Gợi ý: tạo 1 hàm mới
+	read document attibuteDomain
+	sau đó trừ giá trị posValue (giá trị của ReadXMLFIle) -> sẽ ra dc negative value
+	lúc goi replaceof truyển giá trị vào negValue

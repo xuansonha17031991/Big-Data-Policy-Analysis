@@ -1,0 +1,74 @@
+namespace Attributes_request_a {
+	attribute resourceId {
+		id = "urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+		type = string
+		category = subjectCat
+	}
+
+	attribute role {
+		id = "role"
+		type = string
+		category = subjectCat
+	}
+
+	attribute action {
+		id = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+		type = string
+		category = subjectCat
+	}
+	attribute isMeeting {
+		id = "isMeeting"
+		type = boolean
+		category = subjectCat
+	}
+	attribute isEqSubjUserIdResUserId {
+		id = "isEq-subjUserId-resUserId"
+		type = string
+		category = subjectCat
+	}
+	attribute isPending {
+		id = "isPending"
+		type = boolean
+		category = subjectCat
+	}
+	attribute isEqMeetingPaperResId {
+		id = "isEq-meetingPaper-resId"
+		type = boolean
+		category = subjectCat
+	}
+	attribute isSubjectsMeeting {
+		id = "isSubjectsMeeting"
+		type = boolean
+		category = subjectCat
+	}
+	attribute isConflicted {
+		id = "isConflicted"
+		type = boolean
+		category = subjectCat
+	}
+	attribute phase {
+		id = "phase"
+		type = boolean
+		category = subjectCat
+	}
+	attribute subjReviewsThisResPaper {
+		id = "subjReviewsThisResPaper"
+		type = boolean
+		category = subjectCat
+	}
+		attribute hasSubmittedReviewForResPaper {
+		id = "hasSubmittedReviewForResPaper"
+		type = boolean
+		category = subjectCat
+	}
+	attribute isSeeUnassignedAllowed {
+		id = "isSeeUnassignedAllowed"
+		type = boolean
+		category = subjectCat
+	}
+	attribute isReviewContentInPlace {
+		id = "isReviewContentInPlace"
+		type = boolean
+		category = subjectCat
+	}
+}

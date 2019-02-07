@@ -1,0 +1,21 @@
+	
+	500
+http://kmarket.com/id/totalAmount	
+	
+	50
+http://kmarket.com/id/amount	
+	
+	5
+http://kmarket.com/id/amount	
+	
+	1000
+http://kmarket.com/id/totalAmount	
+	
+	10
+http://kmarket.com/id/amount	
+	
+	100
+http://kmarket.com/id/totalAmount	
+	
+	10
+http://kmarket.com/id/amount	

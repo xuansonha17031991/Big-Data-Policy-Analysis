@@ -1,0 +1,129 @@
+namespace Attributes {
+
+	attribute userId {
+		id = "user-id"
+		type = string
+		category = subjectCat
+	}
+ 
+	attribute role {
+		id = "role"
+		type = string
+		category = subjectCat
+	}
+	
+	attribute position {
+		id = "position"
+		type = string
+		category = subjectCat
+	}
+ 
+	attribute partyType {
+		id = "party-type"
+		type = string
+		category = subjectCat
+	}
+ 
+	attribute resourceType {
+		id = "resource-type"
+		type = string
+		category = resourceCat
+	}
+	
+	attribute resourcePath {
+		id = "resource-path"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientId {
+		id = "patient:management-info:id"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientStatus {
+		id = "patient:management-info:status"
+		type = string
+		category = resourceCat
+	}
+	
+//	attribute patientOwnEmergencyPolicies {
+//		id = "patient:management-info:own-emergency-policies"
+//		type = string
+//		category = resourceCat
+//	}
+ 
+	attribute patientRelativePassportId {
+		id = "patient:management-info:relative-passport-id"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientConsciousStatus {
+		id = "patient:management-info:conscious-status"
+		type = string
+		category = resourceCat
+	//	conscious, unconscious
+	}
+ 
+	attribute patientRecordDepartment {
+		id = "patient:record:department"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientRecordAssignedDoctorId {
+		id = "patient:record:assigned-doctor-id"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientRecordAssignedNurseId {
+		id = "patient:record:assigned-nurse-id"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientEmergencyAgreementMedicalStaff {
+		id = "patient:emgergency-agreement:medical-staff"
+		type = string
+		category = resourceCat
+	}
+ 
+	attribute patientEmergencyAgreementRelativePassportId {
+		id = "patient:emgergency-agreement:relative-passport-id"
+		type = string
+		category = resourceCat
+	}
+	
+	attribute patientEmergencyAgreemenStartTime {
+		id = "patient:emgergency-agreement:start-time"
+		type = double
+		category = resourceCat
+	}
+	
+	attribute patientEmergencyAgreementEndTime {
+		id = "patient:emgergency-agreement:end-time"
+		type = double
+		category = resourceCat
+	}
+ 
+	attribute actionType {
+		id = "action-type"
+		type = string
+		category = actionCat
+	}
+ 
+	attribute location {
+		id = "location"
+		type = string
+		category = environmentCat
+	}
+	
+	attribute currentTime {
+		id = "current-time"
+		type = double
+		category = environmentCat
+	}
+}

@@ -1,0 +1,7 @@
+http://kmarket.com/id/role=>kmarket-silver
+urn:oasis:names:tc:xacml:1.0:resource:resource-id=>Liquor
+urn:oasis:names:tc:xacml:1.0:resource:resource-id=>Drink
+urn:oasis:names:tc:xacml:1.0:resource:resource-id=>Medicine
+http://kmarket.com/id/totalAmount=>500
+http://kmarket.com/id/amount=>50
+http://kmarket.com/id/amount=>5

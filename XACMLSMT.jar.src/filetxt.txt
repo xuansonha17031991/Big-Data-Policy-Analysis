@@ -1,0 +1,7 @@
+user-id => Doctor-Patient, Doctor-Non-Patient 
+role => Doctor, nurse, External
+resource-type => Patient.Record, Patient.Non.Record
+patient:management-info:status => AvailableNurseDoctor, Not-AvailableNurseDoctor
+patient:record:department => Heart, Brain
+patient:record:assigned-doctor-id => Doctor-Patient, Doctor-Non-Patient
+action-type => Read, Write

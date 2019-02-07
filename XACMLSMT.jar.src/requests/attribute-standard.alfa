@@ -1,0 +1,179 @@
+namespace Attributes_colleges {
+attribute idAd {
+		id = "id_admin"
+		type = string
+		category = subjectCat
+	}
+attribute idLec {
+		id = "id_Lec"
+		type = string
+		category = subjectCat
+	}
+attribute idStu {
+		id = "id_Stu"
+		type = string
+		category = subjectCat
+	}
+	attribute resource_Student{
+		id = "resource-student"
+		type = string
+		category = subjectCat
+	}
+ attribute resource_Lecturer{
+		id = "resource-lecturer"
+		type = string
+		category = subjectCat
+	}
+	 attribute resource_Classes{
+		id = "resource-classes"
+		type = string
+		category = subjectCat
+	}
+ 	attribute action {
+		id = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+		type = string
+		category = subjectCat
+	}
+	attribute role {
+		id = "role"
+		type = string
+		category = subjectCat
+	}
+	
+	attribute username{
+		id = "user_name"
+		type = string
+		category = subjectCat
+	}
+	
+ 	attribute password {
+		id = "passWord"
+		type = string
+		category = subjectCat
+	}
+	
+	attribute fullname {
+		id = "full_name"
+		type = string
+		category = subjectCat
+	}
+	
+		attribute birthdate  {
+		id = "birth_date"
+		type = date
+		category = environmentCat
+	}
+	attribute Department  {
+		id = "Department"
+		type = string
+		category = subjectCat
+	}
+	
+	attribute Phones  {
+		id = "Phones"
+		type = string
+		category = subjectCat
+	}
+	attribute LIST_Student   {
+		id = "LIST_Student"
+		type = string
+		category = resourceCat
+	}
+	
+	attribute testCode   {
+		id = "test_Code"
+		type = string
+		category = subjectCat
+	}
+	
+	attribute testType   {
+		id = "test_Type"
+		type = string
+		category = environmentCat
+	}
+	
+	attribute testRate   {
+		id = "test_Rate"
+		type = string
+		category = actionCat
+	}
+	
+	attribute duration   {
+		id = "duration"
+		type = string
+		category = actionCat
+	}
+	
+	attribute filename   {
+		id = "file_name"
+		type = string
+		category = resourceCat
+	}
+	
+	attribute startTime   {
+		id = "start_Time"
+		type = time
+		category = environmentCat
+	}
+	
+	attribute startDay   {
+		id = "start_Day"
+		type = time
+		category = environmentCat
+	}
+	
+	attribute endTime   {
+		id = "start_Time"
+		type = time
+		category = environmentCat
+	}
+	attribute endDay   {
+		id = "start_Day"
+		type = time
+		category = environmentCat
+	}
+	attribute courseCode   {
+		id = "course_Code"
+		type = time
+		category = subjectCat
+	}
+	attribute courseName   {
+		id = "course_Name"
+		type = time
+		category = subjectCat
+	}
+	
+	attribute courseFee   {
+		id = "course_Fee"
+		type = time
+		category = resourceCat
+	}
+	attribute salary   {
+		id = "salary"
+		type = time
+		category = resourceCat
+	}
+	
+	attribute registrationDate   {
+		id = "registrationDate"
+		type = date
+		category = environmentCat
+	}
+	attribute session   {
+		id = "session"
+		type = time
+		category = environmentCat
+	}
+	
+		attribute assignmentCode   {
+		id = "assignment_Code"
+		type = string
+		category = subjectCat
+	}
+	
+	attribute grade   {
+		id = "grade"
+		type = string
+		category = subjectCat
+	}
+}

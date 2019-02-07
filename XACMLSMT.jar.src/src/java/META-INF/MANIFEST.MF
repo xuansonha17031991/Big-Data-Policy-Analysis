@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: fturkmen
+Class-Path: ../lib/z3-4.4.1.jar ../lib/commons-cli-1.2.jar ../lib/comm
+ ons-lang-2.1.jar ../lib/commons-math3-3.3.jar ../lib/stax2-api-4.0.0.
+ jar ../lib/log4j-api-2.7.jar
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_73
+Main-Class: query.QueryRunner
+

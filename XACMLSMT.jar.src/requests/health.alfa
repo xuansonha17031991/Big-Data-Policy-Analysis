@@ -1,0 +1,28 @@
+namespace health {
+	import Attributes.*
+	import ObligationAdvice.*
+	
+	policyset HealthCarePsPatientRecord {
+		target clause resourceType=="Patient.Record" and actionType=="Read"
+		apply denyOverrides
+		
+		policy NormalAccessDoctor {
+			target clause patientStatus=="AvailableNurseDoctor"
+					clause role=="Doctor" or role=="Nurse"
+			apply denyOverrides
+			rule permitPatientAssignedDoctor {
+				target clause role=="Doctor" 
+				condition not(stringOneAndOnly(userId)==stringOneAndOnly(patientRecordAssignedDoctorId))
+				deny
+			}
+			rule permitPatientAssignedNurse {
+				target clause role=="Nurse"
+				condition not(stringOneAndOnly(userId)==stringOneAndOnly(patientRecordAssignedNurseId))
+				deny
+			}
+			rule permitRule {
+				permit
+			}
+		}
+	}
+}

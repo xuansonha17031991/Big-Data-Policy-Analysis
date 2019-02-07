@@ -1,0 +1,38 @@
+namespace health {
+	import Attributes_SinhVien.*
+	import ObligationAdvice.*
+
+	//policyset quanLyHoSo {
+	//	target clause resourceType=="HoSo" and actionType=="Read"
+	//	apply denyOverrides
+	//	p/olicy giaoVienTruyCap{
+		//	//target clause responsibilityStatus=="PhongDaoTao"
+				//clause role=="GiaoVien" 
+			//	apply denyOverrides
+		//	rule permitGiaoVien {
+				//	target clause role=="GiaoVien"
+				//	condition not(stringOneAndOnly(userId)==stringOneAndOnly(teacherID))
+				//	||not(stringOneAndOnly(userId)==stringOneAndOnly(profileStudentID))
+			//	deny
+			}
+		//	rule pernitRule{
+		///		permit
+		//	}
+		//}
+		//policy sinhVienTruyCap {
+		//	target clause responsibilityStatus=="PhongDaoTao"
+		//			clause  role=="SinhVien"
+		//	apply denyOverrides
+		//	rule permitSinhVien{
+			//	target clause role=="SinhVien"
+			//	condition not(stringOneAndOnly(userId)==stringOneAndOnly(profileStudentID))
+							//|| not(not(stringOneAndOnly(userId)==stringOneAndOnly(profileTeacherID)))
+							//xem lai sinh khong duoc xem ho so giao vien
+		//		deny
+		//	}
+		//	rule permitRule{
+			//	permit
+	//		}
+	//	} 
+	//}
+//}

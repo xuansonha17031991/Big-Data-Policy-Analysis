@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="true">
+<Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
+<Attribute AttributeId="resource-student" IncludeInResult="true">AccessControl.Student_data_layer.idStu1</Attribute>
+</Attributes>
+<Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
+<Attribute AttributeId="role" IncludeInResult="false">
+<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">teacher</AttributeValue>
+</Attribute>
+</Attributes>
+<Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
+<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
+<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+</Attribute>
+</Attributes>
+</Request>

@@ -1,0 +1,18 @@
+<Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" ReturnPolicyIdList="true" CombinedDecision="false"> 
+ <Attributes Category="unknown">
+    <Attribute IncludeInResult="true" AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">conferenceInfo_rc</AttributeValue>
+    </Attribute>
+  </Attributes>
+   <Attributes Category="unknown" >
+     <Attribute IncludeInResult="false" AttributeId="role">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">admin</AttributeValue>
+	</Attribute>
+  </Attributes>
+  <Attributes Category="unknown">
+    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">write</AttributeValue>
+    </Attribute>
+  </Attributes>
+ 
+</Request>

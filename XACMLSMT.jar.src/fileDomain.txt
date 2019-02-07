@@ -1,0 +1,4 @@
+http://kmarket.com/id/role=>[kmarket-silver]
+urn:oasis:names:tc:xacml:1.0:resource:resource-id=>[Medicine, Liquor, Drink]
+http://kmarket.com/id/totalAmount=>[500]
+http://kmarket.com/id/amount=>[5, 50]

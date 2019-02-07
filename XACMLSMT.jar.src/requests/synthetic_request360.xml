@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" ReturnPolicyIdList="true" CombinedDecision="false"> 
+ <Attributes Category="unknown">
+    <Attribute IncludeInResult="true" AttributeId="a7">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">5</AttributeValue>
+    </Attribute>
+  </Attributes>
+   <Attributes Category="unknown" >
+     <Attribute IncludeInResult="false" AttributeId="a3">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">5</AttributeValue>
+	</Attribute>
+  </Attributes>
+ <Attributes Category="unknown" >
+     <Attribute IncludeInResult="false" AttributeId="a6">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">7</AttributeValue>
+	</Attribute>
+  </Attributes>
+</Request>

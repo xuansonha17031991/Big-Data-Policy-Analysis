@@ -1,0 +1,13 @@
+<Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" ReturnPolicyIdList="true" CombinedDecision="false"> 
+ <Attributes Category="unknown">
+    <Attribute IncludeInResult="true" AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Liquor</AttributeValue>
+    </Attribute>
+  </Attributes>
+   <Attributes Category="unknown" >
+     <Attribute IncludeInResult="false" AttributeId="http://kmarket.com/id/role">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">kmarket-blue</AttributeValue>
+	</Attribute>
+  </Attributes>
+
+</Request>
